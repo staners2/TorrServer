@@ -127,38 +127,6 @@ export const LeftSideBottomSectionNoFile = styled.div`
   }
 `
 
-export const LeftSideBottomSectionFileSelected = styled.div`
-  ${LeftSideBottomSectionBasicStyles}
-  place-items: center;
-
-  @media (max-width: 930px) {
-    height: 400px;
-  }
-
-  @media (max-width: 500px) {
-    height: 170px;
-  }
-`
-
-export const TorrentIconWrapper = styled.div`
-  position: relative;
-`
-
-export const CancelIconWrapper = styled.div`
-  position: absolute;
-  top: -9px;
-  left: 10px;
-  cursor: pointer;
-
-  > svg {
-    transition: all 0.3s;
-    fill: rgba(0, 0, 0, 0.7);
-
-    :hover {
-      fill: rgba(0, 0, 0, 0.6);
-    }
-  }
-`
 
 export const IconWrapper = styled.div`
   display: grid;
@@ -347,6 +315,71 @@ export const PosterLanguageSwitch = styled.div`
       filter: brightness(1.1);
     }
   `}
+`
+
+export const MultiFileRow = styled.div`
+  ${({
+    alreadyExists,
+    theme: {
+      addDialog: { notificationErrorBGColor },
+    },
+  }) => css`
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    gap: 12px;
+    align-items: start;
+    ${alreadyExists && `background: ${notificationErrorBGColor}`};
+  `}
+`
+
+export const MultiFilePoster = styled.div`
+  ${({
+    theme: {
+      addDialog: { posterBGColor },
+    },
+  }) => css`
+    width: 80px;
+    height: 110px;
+    border-radius: 4px;
+    overflow: hidden;
+    background: ${posterBGColor};
+    display: grid;
+    place-items: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  `}
+`
+
+export const MultiFileInfo = styled.div`
+  .file-name {
+    font-size: 13px;
+    opacity: 0.6;
+    margin-bottom: 4px;
+  }
+
+  .file-warning {
+    font-size: 12px;
+    color: #f57c00;
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+
+  .file-original-name {
+    font-size: 12px;
+    opacity: 0.5;
+    margin-bottom: 4px;
+  }
+`
+
+export const MultiFileList = styled.div`
+  max-height: 500px;
+  overflow: auto;
 `
 
 export const StyledPWAAddButton = styled.div`
